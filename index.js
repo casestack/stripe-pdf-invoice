@@ -98,6 +98,10 @@ StripePdfInvoice.prototype.generate = function(invoiceId, data, callback) {
             invoice.subtotal = (invoice.subtotal/100).toFixed(2);
             invoice.tax_percent = invoice.tax_percent || 0;
 
+            if(invoice.discount) {
+                invoice.discount.coupon.amount_off = (invoice.discount.coupon.amount_off/100).toFixed(2);
+            }
+
 
             var html = jade.renderFile(path.resolve(__dirname + '/templates/invoice.jade'), {
                 invoice : invoice,

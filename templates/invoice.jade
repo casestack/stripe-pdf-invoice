@@ -116,6 +116,11 @@ html.no-js
                     | #{invoice.subtotal}
                     if !invoice.currency_position_before
                         | #{invoice.currency_symbol}
+                if invoice.discount
+                  .row
+                    .small-8.columns.upper Discount
+                    .small-2.columns.upper #{invoice.discount.coupon.id}
+                    .small-2.columns.num  -#{invoice.currency_symbol}#{invoice.discount.coupon.amount_off}
                 .row.total-line.upper
                   .small-10.columns #{invoice.label_total}
                   .small-2.columns.num
