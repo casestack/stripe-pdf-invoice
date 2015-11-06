@@ -24,7 +24,7 @@ html.no-js
     body.layout
         .row.invoice-body
             .columns
-                .row.white-small 
+                .row.white-small
                     .columns.small-10
                         if invoice.company_logo
                             .row
@@ -96,7 +96,7 @@ html.no-js
                             .row
                               .small-7.columns #{line.description || 'Item description'}
                               .small-1.columns #{line.quantity}
-                              .small-2.columns 
+                              .small-2.columns
                                 if invoice.currency_position_before
                                     | #{invoice.currency_symbol}
                                 | #{line.price}
@@ -116,9 +116,6 @@ html.no-js
                     | #{invoice.subtotal}
                     if !invoice.currency_position_before
                         | #{invoice.currency_symbol}
-                .row
-                  .small-10.columns.upper #{invoice.label_vat}
-                  .small-2.columns.num #{invoice.tax_percent}%
                 .row.total-line.upper
                   .small-10.columns #{invoice.label_total}
                   .small-2.columns.num
